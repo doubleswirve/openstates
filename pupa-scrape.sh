@@ -20,7 +20,11 @@ export PYTHONPATH=./openstates
 
 $PUPA_ENV/bin/pupa ${PUPA_ARGS:-} update $state "$@"
 
-echo "govhawkexecutiontime " $(convertsecs "$SECONDS")
+echo "govhawk-exec-time" $state $(convertsecs "$SECONDS") $SECONDS
+
+if [ -n "${EXP_EXEC_TIME+1}" ] && [ "$SECONDS" -ge "$EXP_EXEC_TIME" ]; then
+  echo "govhawk-exp-exec-time" $state $(convertsecs "$SECONDS") $SECONDS
+fi
 
 if [ "$SKIP_BILLY" = true ]; then
   exit 0
