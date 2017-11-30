@@ -16,6 +16,8 @@ convertsecs() {
 state=$1
 shift
 
+echo "govhawk-exec-init" $state $(date)
+
 export PYTHONPATH=./openstates
 
 $PUPA_ENV/bin/pupa ${PUPA_ARGS:-} update $state "$@"
