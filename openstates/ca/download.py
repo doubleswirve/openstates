@@ -277,6 +277,10 @@ def db_create():
     import warnings
     warnings.filterwarnings('ignore', 'Unknown table.*')
 
+    print("i am really trying")
+    print(MYSQL_HOST)
+    print(MYSQL_USER)
+    print(MYSQL_PASSWORD)
     for sql in sql_statements:
         cursor.execute(sql)
 

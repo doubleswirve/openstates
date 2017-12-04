@@ -34,11 +34,13 @@ services:
     - MYSQL_DATABASE=capublic
     - MYSQL_ALLOW_EMPTY_PASSWORD=yes
   ca-download:
-    image: openstates/openstates
+    image: govhawk/openstates:debug-ca-0
     entrypoint: /opt/openstates/openstates/openstates/ca/download.sh
     environment:
-    - MYSQL_HOST=mysql
+    - MYSQL_USER=scraper
+    - MYSQL_PASSWORD=A7iJTM7rTmVXK79
+    - MYSQL_HOST=158.69.86.15
     volumes:
     - .:/opt/openstates/openstates/
-    depends_on:
-    - mysql
+    # depends_on:
+    # - mysql
